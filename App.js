@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Provider} from 'react-native-paper';
 
 import HomeScreen from "./screens/HomeScreen";
 import ScanQrScreen from "./screens/ScanQrScreen";
@@ -13,6 +14,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import LocationScreen from "./screens/LocationScreen";
 import StatsScreen from "./screens/StatsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import { DefaultTheme } from "react-native-paper";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -20,6 +22,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      <Provider theme  = {theme}>
       <Stack.Navigator>
         <Stack.Screen
           name="login"
@@ -37,14 +40,13 @@ export default function App() {
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 }
 
 function MyTabs() {
   
-  
-
   return (
     <Tab.Navigator
       labeled={false}
@@ -119,4 +121,12 @@ function MyTabs() {
       />
     </Tab.Navigator>
   );
+}
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    secondaryContainer: 'transparent',
+  }
 }

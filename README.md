@@ -1,4 +1,14 @@
-# recybox-project
+# RECYBOX APP
 
-This project contains recybox app so far...
+Open VS
+
+git clone https://github.com/j4cobb/recybox-project
+
+cd recybox-project
+
+code .
+
+npm i 
+
+npm start
 
